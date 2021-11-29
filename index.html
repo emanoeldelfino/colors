@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Change color</title>
-    <style>
-        div {
-            margin: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div>
-        <p>Color: </p><input id="color" type="text">
-        <input id="sub" type="button" value="Submit">
-    </div>
-    <div>
-        <input id="randomColor" type="button" value="Get random color">
-    </div>
-    <div>
-        <p id="color"></p>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Background Color</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 id="logo">Background Color</h1>
+    </header>
+    <main>
+      <label for="color">
+        Select a Color
+        <input id="color" type="color" value="#ffffff" />
+      </label>
+      <input id="random-color" type="button" value="Random Color" />
+      <span id="color-code">#FFFFFF</span>
+    </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

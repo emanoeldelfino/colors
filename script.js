@@ -1,35 +1,31 @@
-const hexChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+const colorInput = document.querySelector("input#color");
+const randomColorBtn = document.querySelector("input#random-color");
+const spanColorCode = document.querySelector("span#color-code");
 
-function getRandomElem(arr, num=1) {
-    if (num === 1) {
-        return arr[Math.floor(Math.random() * arr.length)];
-    } else if (num <= 0) {
-        return null;
-    } else {
-        let elems = [];
-        for (i=0; i < num; i++) {
-            elems.push(arr[Math.floor(Math.random() * arr.length)])
-        }
-        return elems;
+const hexChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+
+function getRandomElem(arr, num = 1) {
+  if (num === 1) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  } else if (num <= 0) {
+    return null;
+  } else {
+    let elems = [];
+    for (i = 0; i < num; i++) {
+      elems.push(arr[Math.floor(Math.random() * arr.length)]);
     }
+    return elems;
+  }
 }
 
-let inputColor = document.querySelector('input#color');
-let subButton = document.querySelector('input#sub');
-let randomColorButton = document.querySelector('input#randomColor');
-let divP = document.querySelector('div>p')
+randomColorBtn.addEventListener("click", () => {
+  colorInput.value = "#" + getRandomElem(hexChars, 6).join("");
+  updateBgColor();
+});
 
-subButton.addEventListener('click', changeBackground);
-randomColorButton.addEventListener('click', changeBackgroundAuto);
+colorInput.addEventListener("change", updateBgColor);
 
-function changeBackground() {
-    document.body.style.background = inputColor.value;
-    divP.innerText = inputColor.value;
+function updateBgColor() {
+  document.body.style.background = spanColorCode.innerText =
+    colorInput.value.toUpperCase();
 }
-
-function changeBackgroundAuto() {
-    let hexColor = '#' + getRandomElem(hexChars, num=6).join('');
-    divP.innerText = hexColor;
-    document.body.style.background = hexColor;
-}
-
